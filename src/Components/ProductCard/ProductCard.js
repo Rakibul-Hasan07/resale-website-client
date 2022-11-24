@@ -2,12 +2,12 @@ import React from 'react';
 import { MapPinIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 
-const ProductCard = ({ hpProduct }) => {
-    const { image, location, sellerName, resale, original, useYear, productName } = hpProduct;
+const ProductCard = ({ product }) => {
+    const { image, location, sellerName, resale, original, useYear, productName } = product;
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
-                <figure><img className='w-[300px] h-[200px] lg:w-[300px] lg:h-[200px]' src={image} alt=""  /></figure>
+                <figure><img className='w-[300px] h-[200px] lg:w-[300px] lg:h-[200px]' src={image} alt="" /></figure>
                 <div className="card-body flex justify-center items-center">
                     <h2 className="card-title font-bold text-2xl">
                         {productName}

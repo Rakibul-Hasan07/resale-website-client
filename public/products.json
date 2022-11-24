@@ -1,29 +1,98 @@
 [
     {
-        "image": "https://i.ibb.co/TwfktGq/image5.jpg",
-        "productName": "Hp Elite Book",
-        "location": "Sirajganj",
-        "resale": 350,
-        "original": 510,
-        "useYear": 2,
-        "sellerName": "Rakibul Hasan"
+        "categoryId": "01",
+        "categoryProducts": [
+            {
+                "image": "https://i.ibb.co/TwfktGq/image5.jpg",
+                "productName": "Hp Elite Book",
+                "location": "Sirajganj",
+                "resale": 350,
+                "original": 510,
+                "useYear": 2,
+                "sellerName": "Rakibul Hasan"
+            },
+            {
+                "image": "https://i.ibb.co/9t1qjcG/image3.jpg",
+                "productName": "Hp Pavilion",
+                "location": "Dhaka",
+                "resale": 290,
+                "original": 470,
+                "useYear": 3,
+                "sellerName": "Shihab Ahmed"
+            },
+            {
+                "image": "https://i.ibb.co/kJRwxKq/image4.jpg",
+                "productName": "Hp Chromebook",
+                "location": "Rajshahi",
+                "resale": 410,
+                "original": 630,
+                "useYear": 1,
+                "sellerName": "Saikat Hasan"
+            }
+        ]
     },
     {
-        "image": "https://i.ibb.co/9t1qjcG/image3.jpg",
-        "productName": "Hp Pavilion",
-        "location": "Dhaka",
-        "resale": 290,
-        "original": 470,
-        "useYear": 3,
-        "sellerName": "Shihab Ahmed"
+        "categoryId": "02",
+        "categoryProducts": [
+            {
+                "image": "https://i.ibb.co/fDVjjR8/image6.jpg",
+                "productName": "Lenovo Legion",
+                "location": "Natore",
+                "resale": 250,
+                "original": 310,
+                "useYear": 1,
+                "sellerName": "Rakibul Hasan"
+            },
+            {
+                "image": "https://i.ibb.co/SQzYWLj/image7.jpg",
+                "productName": "Lenovo IdealPad",
+                "location": "Dhaka",
+                "resale": 290,
+                "original": 470,
+                "useYear": 2,
+                "sellerName": "Shihab Ahmed"
+            },
+            {
+                "image": "https://i.ibb.co/41HmBzK/image8.jpg",
+                "productName": "Lenovo Yoga",
+                "location": "Rajshahi",
+                "resale": 410,
+                "original": 630,
+                "useYear": 1,
+                "sellerName": "Saikat Hasan"
+            }
+        ]
     },
     {
-        "image": "https://i.ibb.co/kJRwxKq/image4.jpg",
-        "productName": "Hp Chromebook",
-        "location": "Rajshahi",
-        "resale": 410,
-        "original": 630,
-        "useYear": 1,
-        "sellerName": "Saikat Hasan"
+        "categoryId": "03",
+        "categoryProducts": [
+            {
+                "image": "https://i.ibb.co/6J9nmtX/image9.jpg",
+                "productName": "Dell Vostro",
+                "location": "Sirajganj",
+                "resale": 350,
+                "original": 510,
+                "useYear": 2,
+                "sellerName": "Rakibul Hasan"
+            },
+            {
+                "image": "https://i.ibb.co/6nwXyxK/image10.jpg",
+                "productName": "Dell Latitude",
+                "location": "Dhaka",
+                "resale": 290,
+                "original": 470,
+                "useYear": 3,
+                "sellerName": "Shihab Ahmed"
+            },
+            {
+                "image": "https://i.ibb.co/kJRwxKq/image4.jpg",
+                "productName": "Dell Rugged",
+                "location": "Rajshahi",
+                "resale": 410,
+                "original": 630,
+                "useYear": 1,
+                "sellerName": "Saikat Hasan"
+            }
+        ]
     }
 ]
