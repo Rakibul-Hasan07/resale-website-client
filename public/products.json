@@ -1,0 +1,29 @@
+[
+    {
+        "image": "https://i.ibb.co/TwfktGq/image5.jpg",
+        "productName": "Hp Elite Book",
+        "location": "Sirajganj",
+        "resale": 350,
+        "original": 510,
+        "useYear": 2,
+        "sellerName": "Rakibul Hasan"
+    },
+    {
+        "image": "https://i.ibb.co/9t1qjcG/image3.jpg",
+        "productName": "Hp Pavilion",
+        "location": "Dhaka",
+        "resale": 290,
+        "original": 470,
+        "useYear": 3,
+        "sellerName": "Shihab Ahmed"
+    },
+    {
+        "image": "https://i.ibb.co/kJRwxKq/image4.jpg",
+        "productName": "Hp Chromebook",
+        "location": "Rajshahi",
+        "resale": 410,
+        "original": 630,
+        "useYear": 1,
+        "sellerName": "Saikat Hasan"
+    }
+]
