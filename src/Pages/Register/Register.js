@@ -1,24 +1,76 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../Components/PrimaryBtn/PrimaryBtn';
 import toast from 'react-hot-toast'
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-    
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [url, setUrl] = useState('')
+    const imageKey = process.env.REACT_APP_imgbbkey;
     const handleSignIn = event => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        const radio = event.target.radio.value;
-        const image = event.target.image.files;
-        console.log(image);
+        const role = event.target.radio.value;
+        const image = event.target.image.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
+
+        // fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`, {
+        //     method: 'POST',
+        //     body: formData
+        // })
+        //     .then(res => res.json())
+        //     .then(imgData => {
+        //         setUrl(imgData.data.url);
+        //     })
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                toast.success('Sign in Successfully')
+                console.log(user);
+                fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`, {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(res => res.json())
+                    .then(imgData => {
+                        const url = imgData.data.url;
+                        updateUser(name, url)
+                            .then(() => {
+                                const userData = {
+                                    name,
+                                    email,
+                                    url,
+                                    role
+                                }
+                                fetch('http://localhost:5000/users', {
+                                    method: 'POST',
+                                    headers: {
+                                        'content-type': 'application/json'
+                                    },
+                                    body: JSON.stringify(userData)
+                                })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data);
+                                })
+                                toast.success('Sign in Successfully')
+                            })
+                            .catch(error => {
+                                console.log(error);
+                            })
+                    })
+                // updateUser(name, url)
+                //     .then(() => {
+                //         toast.success('Sign in Successfully')
+                //     })
+                //     .catch(error => {
+                //         console.log(error);
+                //     })
+
             })
             .catch(error => {
                 console.log(error);
@@ -57,10 +109,6 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                                <input type="radio" id="seller" name="radio" value="seller" defaultChecked />
-                                <label htmlFor="seller" className='ml-3'>seller</label>
-                                <input type="radio" id="buyer" name="radio" value="buyer" />
-                                <label htmlFor="buyer" className='ml-3'>buyer</label>
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -69,8 +117,14 @@ const Register = () => {
                                         <Link to='/login' className='text-blue-500'> Login</Link></p>
                                 </label>
                             </div>
+                            <div className=''>
+                                <label htmlFor="seller" className='ml-3'>Seller</label>
+                                <input type="radio" id="seller" name="radio" value="seller" defaultChecked />
+                                <label htmlFor="buyer" className='ml-3'>Buyer</label>
+                                <input type="radio" id="buyer" name="radio" value="buyer" />
+                            </div>
                             <div className="form-control mt-6 text-center">
-                                <PrimaryBtn unique={'w-full'}>Login</PrimaryBtn>
+                                <PrimaryBtn unique={'w-full'}>Signin</PrimaryBtn>
                             </div>
                         </form>
                     </div>
