@@ -7,10 +7,8 @@ import Carousel from '../Carousel/Carousel';
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
             <Carousel></Carousel>
             <AdvertisedItems></AdvertisedItems>
-            <Footer></Footer>
         </div>
     );
 };

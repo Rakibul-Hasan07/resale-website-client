@@ -1,22 +1,26 @@
 import CategoryLayout from "../Layout/CategoryLayout";
-import DellLaptop from "../Pages/Category/DellLaptop/DellLaptop";
-import HpLaptop from "../Pages/Category/HpLaptop/HpLaptop";
-import LenovoLaptop from "../Pages/Category/LenovoLaptop/LenovoLaptop";
+import AllProducts from '../Pages/Category/AllProducts/AllProducts'
+import Home from "../Pages/Home/Home/Home";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
+import PrivateRoutes from "./PrivateRoutes";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Root } = require("../Layout/Root");
 
 export const routes = createBrowserRouter([
     {
-        path: '/', element: <Root></Root>, errorElement: <ErrorPage></ErrorPage>, children: [{
-
-        }]
+        path: '/', element: <Root></Root>, errorElement: <ErrorPage></ErrorPage>, children: [
+            { path: '/', element: <Home></Home> },
+            { path: '/login', element: <Login></Login> },
+            { path: '/register', element: <Register></Register> }
+        ]
     },
     {
-        path: '/category', errorElement: <ErrorPage></ErrorPage>, element: <CategoryLayout></CategoryLayout>, children: [
+        path: '/category', errorElement: <ErrorPage></ErrorPage>, element: <PrivateRoutes><CategoryLayout></CategoryLayout></PrivateRoutes>, children: [
             {
-                path: '/category/products/:id', element: <HpLaptop></HpLaptop>, loader: ({ params }) => {
+                path: '/category/products/:id', element: <PrivateRoutes><AllProducts></AllProducts></PrivateRoutes>, loader: ({ params }) => {
                     return fetch(`http://localhost:5000/category/products/${params.id}`)
                 }
             }

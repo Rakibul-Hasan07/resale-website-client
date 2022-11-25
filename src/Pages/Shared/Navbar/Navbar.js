@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     const navMenu = <>
-    <li><Link to='/'>Home</Link></li>
-    <li><Link to='/'>Dashboard</Link></li>
-    <li><Link to='/category'>Category</Link></li>
-    <li><Link to='/'>About Us</Link></li>
-    <li><Link to='/'>Contact Us</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/'>Dashboard</Link></li>
+        <li><Link to='/category'>Category</Link></li>
+        <li><Link to='/'>About Us</Link></li>
+        <li><Link to='/'>Contact Us</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -28,7 +39,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn btn-xs">Login</Link>
+                {
+                    user?.uid ?
+                        <PrimaryBtn unique={"btn-sm"}><Link onClick={handleLogout} to='/login'>LogOut</Link></PrimaryBtn> : <>
+                            <PrimaryBtn unique={"btn-sm"}><Link to='/login'>Login</Link></PrimaryBtn>
+                        </>
+                }
             </div>
         </div>
     );

@@ -12,9 +12,9 @@ const CategoryOption = () => {
         }
     })
     return (
-        <div>
-            <h3 className='text-center font-bold text-3xl'>Select Your Own Choose</h3>
-            <ul className="menu bg-base-100 w-56 rounded-box">
+        <div className='flex flex-col items-center'>
+            <h3 className='text-center font-bold text-3xl my-4'>Select Your Own Choose</h3>
+            <ul className="menu bg-base-100 w-56 rounded-box font-bold text-xl mb-5">
                 {
                     categoryData.map(category => <li key={category._id}>
                         <Link to={`/category/products/${category.id}`}>{category.name}</Link>
