@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPinIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
+import DaynamicModal from '../DaynamicModal/DaynamicModal';
 
 const ProductCard = ({ product }) => {
     const { image, location, sellerName, resale, original, useYear, productName } = product;
+    const [modalData, setModalData] = useState({})
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
@@ -28,10 +30,16 @@ const ProductCard = ({ product }) => {
                         <p>Seller: {sellerName}</p>
                     </div>
                     <div className="card-actions justify-center">
-                        <PrimaryBtn>Book Bow</PrimaryBtn>
+                        <PrimaryBtn><label onClick={() => setModalData(product)} htmlFor="resale-modal">Book Now</label></PrimaryBtn>
+
                     </div>
                 </div>
             </div>
+            <DaynamicModal
+                product={modalData}
+            >
+
+            </DaynamicModal>
         </div>
     );
 };

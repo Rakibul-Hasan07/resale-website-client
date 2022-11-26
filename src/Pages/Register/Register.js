@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../Components/PrimaryBtn/PrimaryBtn';
 import toast from 'react-hot-toast'
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
-    const [url, setUrl] = useState('')
+    const navigate = useNavigate();
     const imageKey = process.env.REACT_APP_imgbbkey;
+
+
     const handleSignIn = event => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -18,19 +20,11 @@ const Register = () => {
         const formData = new FormData();
         formData.append('image', image);
 
-        // fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(imgData => {
-        //         setUrl(imgData.data.url);
-        //     })
-
+        //create user
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                //image hoisting
                 fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`, {
                     method: 'POST',
                     body: formData
@@ -38,6 +32,7 @@ const Register = () => {
                     .then(res => res.json())
                     .then(imgData => {
                         const url = imgData.data.url;
+                        //update user
                         updateUser(name, url)
                             .then(() => {
                                 const userData = {
@@ -53,23 +48,18 @@ const Register = () => {
                                     },
                                     body: JSON.stringify(userData)
                                 })
-                                .then(res => res.json())
-                                .then(data => {
-                                    console.log(data);
-                                })
-                                toast.success('Sign in Successfully')
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        if (data.acknowledged) {
+                                            toast.success('Sign in Successfully')
+                                            navigate('/')
+                                        }
+                                    })
                             })
                             .catch(error => {
                                 console.log(error);
                             })
                     })
-                // updateUser(name, url)
-                //     .then(() => {
-                //         toast.success('Sign in Successfully')
-                //     })
-                //     .catch(error => {
-                //         console.log(error);
-                //     })
 
             })
             .catch(error => {

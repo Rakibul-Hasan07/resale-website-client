@@ -1,4 +1,5 @@
 import CategoryLayout from "../Layout/CategoryLayout";
+import DashboardLayout from "../Layout/DashboardLayout";
 import AllProducts from '../Pages/Category/AllProducts/AllProducts'
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -23,6 +24,13 @@ export const routes = createBrowserRouter([
                 path: '/category/products/:id', element: <PrivateRoutes><AllProducts></AllProducts></PrivateRoutes>, loader: ({ params }) => {
                     return fetch(`http://localhost:5000/category/products/${params.id}`)
                 }
+            }
+        ]
+    },
+    {
+        path: '/dashboard', element: <DashboardLayout></DashboardLayout>, children: [
+            {
+
             }
         ]
     }

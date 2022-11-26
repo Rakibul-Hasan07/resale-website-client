@@ -15,7 +15,10 @@ const Navbar = () => {
     }
     const navMenu = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Dashboard</Link></li>
+        {
+            user?.uid ?
+                <li><Link to='/dashboard'>Dashboard</Link></li> : <></>
+        }
         <li><Link to='/category'>Category</Link></li>
         <li><Link to='/'>About Us</Link></li>
         <li><Link to='/'>Contact Us</Link></li>
@@ -31,7 +34,7 @@ const Navbar = () => {
                         {navMenu}
                     </ul>
                 </div>
-                <a className="normal-case text-xl">ResaleXpress</a>
+                <Link to='/' className="normal-case text-xl">ResaleXpress</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
