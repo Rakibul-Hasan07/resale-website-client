@@ -7,8 +7,7 @@ const useBuyer = email => {
         fetch(`http://localhost:5000/users/buyer/${email}`)
             .then(res => res.json())
             .then(data => {
-                setIsBuyer(data.isAdmin)
-                console.log(data.isAdmin);
+                setIsBuyer(data.isBuyer)
                 setBuyerLoading(false)
             })
     }, [email])

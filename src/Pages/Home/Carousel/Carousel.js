@@ -4,10 +4,10 @@ import backgroudImage from '../../../assets/slider-background.jpg'
 
 const Carousel = () => {
     return (
-        <div className='lg:flex mt-6' style={{ backgroundImage: `url(${backgroudImage})`}} >
+        <div className='lg:flex mt-6' >
             <div className='lg:flex-1 justify-center items-center'>
                 <h1 className='font-bold text-4xl text-center'>We Help you to <br /> develop digital unique world</h1>
-                <p className='font-bold text-xl mt-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis culpa ipsam, amet commodi nulla vitae animi voluptatem beatae doloremque fugit consequatur illum dicta odit maxime, pariatur quis reprehenderit assumenda aliquid.</p>
+                <p className='font-bold text-xl m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis culpa ipsam, amet commodi nulla vitae animi voluptatem beatae doloremque fugit consequatur illum dicta odit maxime, pariatur quis reprehenderit assumenda aliquid.</p>
                 <div className='flex gap-8 mt-4'>
                     <PrimaryBtn>Contact Us</PrimaryBtn>
                     <PrimaryBtn>See Products</PrimaryBtn>

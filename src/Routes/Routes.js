@@ -1,6 +1,8 @@
 import CategoryLayout from "../Layout/CategoryLayout";
 import DashboardLayout from "../Layout/DashboardLayout";
 import AllProducts from '../Pages/Category/AllProducts/AllProducts'
+import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
+import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
@@ -30,7 +32,10 @@ export const routes = createBrowserRouter([
     {
         path: '/dashboard', element: <DashboardLayout></DashboardLayout>, children: [
             {
-
+                path: '/dashboard', element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/users/all-users', element: <AllSellers></AllSellers>
             }
         ]
     }

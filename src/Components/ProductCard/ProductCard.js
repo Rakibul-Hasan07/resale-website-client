@@ -6,6 +6,7 @@ import DaynamicModal from '../DaynamicModal/DaynamicModal';
 const ProductCard = ({ product }) => {
     const { image, location, sellerName, resale, original, useYear, productName } = product;
     const [modalData, setModalData] = useState({})
+    console.log(modalData);
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
@@ -36,11 +37,11 @@ const ProductCard = ({ product }) => {
                 </div>
             </div>
             <DaynamicModal
-                product={modalData}
+            product={modalData}
             >
 
-            </DaynamicModal>
-        </div>
+        </DaynamicModal>
+        </div >
     );
 };
 

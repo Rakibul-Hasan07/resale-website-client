@@ -1,6 +1,16 @@
 import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-const Dashboard = () => {
+const AllSellers = () => {
+    const { data } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/users/all-seller')
+            const data = await res.json()
+            return data;
+        }
+    })
+    console.log(data);
     return (
         <div className="overflow-x-auto">
             <table className="table w-full">
@@ -19,22 +29,10 @@ const Dashboard = () => {
                         <td>Quality Control Specialist</td>
                         <td>Blue</td>
                     </tr>
-                    <tr className="active">
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Purple</td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Red</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     );
 };
 
-export default Dashboard;
+export default AllSellers;

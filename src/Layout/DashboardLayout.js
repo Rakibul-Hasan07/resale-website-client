@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
-import { useQuery } from '@tanstack/react-query'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 import useBuyer from '../hooks/useBuyer';
@@ -26,7 +25,7 @@ const DashboardLayout = () => {
             <Navbar></Navbar>
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content">
                     <Outlet></Outlet>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
@@ -36,7 +35,7 @@ const DashboardLayout = () => {
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         {
                             isAdmin && <>
-                                <li><Link>All Sellers</Link></li>
+                                <li><Link to='/dashboard/users/all-users'>All Sellers</Link></li>
                                 <li><Link>All Buyers</Link></li>
                                 <li><Link>Reported Items</Link></li>
                             </>
