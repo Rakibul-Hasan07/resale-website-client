@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { MapPinIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
-import DaynamicModal from '../DaynamicModal/DaynamicModal';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setModalData }) => {
     const { image, location, sellerName, resale, original, useYear, productName } = product;
-    const [modalData, setModalData] = useState({})
-    console.log(modalData);
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl">
-                <figure><img className='w-[300px] h-[200px] lg:w-[300px] lg:h-[200px]' src={image} alt="" /></figure>
+            <div className="card bg-blue-500 shadow-xl">
+                <figure><img className='w-[300px] h-[200px] lg:w-[300px] lg:h-[200px] p-3 ' src={image} alt="" /></figure>
                 <div className="card-body flex justify-center items-center">
                     <h2 className="card-title font-bold text-2xl">
                         {productName}
@@ -36,11 +33,6 @@ const ProductCard = ({ product }) => {
                     </div>
                 </div>
             </div>
-            <DaynamicModal
-            product={modalData}
-            >
-
-        </DaynamicModal>
         </div >
     );
 };
