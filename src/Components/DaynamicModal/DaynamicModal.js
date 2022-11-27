@@ -28,7 +28,7 @@ const DaynamicModal = ({ modalData, setModalData }) => {
             .then(data => {
                 // console.log(data);
                 if (data.acknowledged) {
-                    toast.success('Submitted successfully')
+                    toast.success('Booked successfully')
                     setModalData(null)
                 }
             })
