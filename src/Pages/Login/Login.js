@@ -1,14 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../Components/PrimaryBtn/PrimaryBtn';
 import toast from 'react-hot-toast'
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
-    const { login } = useContext(AuthContext)
+    const { login, googleSignIn } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
+    const [loginEmail, setLoginEmail] = useState('')
+    const [token] = useToken(loginEmail)
+
+    if (token) {
+        navigate(from, { replace: true })
+    }
     const handleLogin = event => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -16,8 +23,18 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
+                setLoginEmail(email)
                 toast.success('Login successfully')
-                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    const handleGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.result;
+                toast.success('Login successfully')
             })
             .catch(error => {
                 console.log(error);
@@ -55,6 +72,9 @@ const Login = () => {
                                 <PrimaryBtn unique={'w-full'}>Login</PrimaryBtn>
                             </div>
                         </form>
+                        <div onClick={handleGoogle} className="form-control text-center my-3 px-8">
+                            <PrimaryBtn unique={'w-full'}>Google</PrimaryBtn>
+                        </div>
                     </div>
                 </div>
             </div>

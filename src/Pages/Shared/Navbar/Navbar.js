@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
+import resaleLogo from '../../../assets/resale (2).png'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -35,7 +36,8 @@ const Navbar = () => {
                         {navMenu}
                     </ul>
                 </div>
-                <Link to='/' className="normal-case text-xl">ResaleXpress</Link>
+                <img className='w-10 h-10 rounded-full' src={resaleLogo} alt="" />
+                <Link to='/' className="normal-case text-2xl text-orange-700">ResaleXpress</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

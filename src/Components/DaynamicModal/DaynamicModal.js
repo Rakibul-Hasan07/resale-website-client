@@ -3,11 +3,14 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useForm } from "react-hook-form";
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom';
 
 const DaynamicModal = ({ modalData, setModalData }) => {
     const { resale, productName } = modalData;
+    const date = new Date();
     const { user } = useContext(AuthContext);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
     const handleModal = data => {
         const bookings = {
             name: data.name,
@@ -15,7 +18,8 @@ const DaynamicModal = ({ modalData, setModalData }) => {
             productName: data.productName,
             price: data.price,
             phone: data.phone,
-            place: data.place
+            place: data.place,
+            date
         }
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -80,7 +84,7 @@ const DaynamicModal = ({ modalData, setModalData }) => {
                                         <input type="text" {...register("place")} name='place' placeholder="place" className="input input-bordered" />
                                     </div>
                                     <div className="form-control mt-6 text-center">
-                                        <PrimaryBtn unique={'w-full'}>Submit</PrimaryBtn>
+                                        <Link to='/category/my-orders'><PrimaryBtn unique={'w-full'}>Submit</PrimaryBtn></Link>
                                     </div>
                                 </form>
                             </div>

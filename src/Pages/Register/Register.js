@@ -3,11 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../Components/PrimaryBtn/PrimaryBtn';
 import toast from 'react-hot-toast'
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const imageKey = process.env.REACT_APP_imgbbkey;
+    const [userEmail, setUserEmail] = useState('')
+    const [token] = useToken(userEmail);
+    if (token) {
+        navigate('/')
+    }
 
 
     const handleSignIn = event => {
@@ -51,8 +57,8 @@ const Register = () => {
                                     .then(res => res.json())
                                     .then(data => {
                                         if (data.acknowledged) {
+                                            setUserEmail(email)
                                             toast.success('Sign in Successfully')
-                                            navigate('/')
                                         }
                                     })
                             })

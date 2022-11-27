@@ -1,3 +1,12 @@
+* Login, SignIn
+* Admin, Seller, Buyer Dashboard
+* Private Route
+* Booking products
+* Category wise show product
+
+* Admin Email: rk.rakibulhasan07@gmail.com
+* Password: 123456
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

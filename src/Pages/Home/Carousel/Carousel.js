@@ -1,13 +1,12 @@
 import React from 'react';
 import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
-import backgroudImage from '../../../assets/slider-background.jpg'
 
 const Carousel = () => {
     return (
         <div className='lg:flex mt-6' >
             <div className='lg:flex-1 justify-center items-center'>
-                <h1 className='font-bold text-4xl text-center'>We Help you to <br /> develop digital unique world</h1>
-                <p className='font-bold text-xl m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis culpa ipsam, amet commodi nulla vitae animi voluptatem beatae doloremque fugit consequatur illum dicta odit maxime, pariatur quis reprehenderit assumenda aliquid.</p>
+                <h1 className='font-bold text-4xl text-center'>We Help you to <br /> suggests good products</h1>
+                <p className='font-bold text-xl m-4'>We are provide second hand products service. You visits our website and choose your products.You can buy budge friendly products.</p>
                 <div className='flex gap-8 mt-4'>
                     <PrimaryBtn>Contact Us</PrimaryBtn>
                     <PrimaryBtn>See Products</PrimaryBtn>

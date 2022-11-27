@@ -1,5 +1,6 @@
 import CategoryLayout from "../Layout/CategoryLayout";
 import DashboardLayout from "../Layout/DashboardLayout";
+import MyOrders from "../MyOrders/MyOrders";
 import AllProducts from '../Pages/Category/AllProducts/AllProducts'
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
@@ -28,6 +29,9 @@ export const routes = createBrowserRouter([
                 path: '/category/products/:id', element: <PrivateRoutes><AllProducts></AllProducts></PrivateRoutes>, loader: ({ params }) => {
                     return fetch(`http://localhost:5000/category/products/${params.id}`)
                 }
+            },
+            {
+                path: '/category/my-orders', element: <MyOrders></MyOrders>
             }
         ]
     },
@@ -38,7 +42,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/users/all-users', element: <AllSellers></AllSellers>
-            }
+            },
+
         ]
     }
 ])

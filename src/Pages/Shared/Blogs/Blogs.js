@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([])
-    console.log(blogs);
     useEffect(() => {
         axios.get('http://localhost:5000/blogs')
             .then(function (response) {
