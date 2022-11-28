@@ -36,7 +36,6 @@ const DaynamicModal = ({ modalData, setModalData }) => {
                     setModalData(null)
                 }
             })
-        console.log(bookings);
     }
     return (
         <div>
