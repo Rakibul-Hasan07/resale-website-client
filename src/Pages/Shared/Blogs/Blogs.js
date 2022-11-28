@@ -4,7 +4,7 @@ import axios from 'axios';
 const Blogs = () => {
     const [blogs, setBlogs] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/blogs')
+        axios.get('https://resale-website-server.vercel.app/blogs')
             .then(function (response) {
                 setBlogs(response.data);
             })

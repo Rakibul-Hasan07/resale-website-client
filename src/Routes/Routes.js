@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
         path: '/category', errorElement: <ErrorPage></ErrorPage>, element: <PrivateRoutes><CategoryLayout></CategoryLayout></PrivateRoutes>, children: [
             {
                 path: '/category/products/:id', element: <PrivateRoutes><AllProducts></AllProducts></PrivateRoutes>, loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/category/products/${params.id}`)
+                    return fetch(`https://resale-website-server.vercel.app/category/products/${params.id}`)
                 }
             },
             {

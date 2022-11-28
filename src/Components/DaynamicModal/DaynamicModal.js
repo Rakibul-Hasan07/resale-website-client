@@ -21,7 +21,7 @@ const DaynamicModal = ({ modalData, setModalData }) => {
             place: data.place,
             date
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://resale-website-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -89,6 +89,9 @@ const DaynamicModal = ({ modalData, setModalData }) => {
                                 </form>
                             </div>
                         </div>
+                    </div>
+                    <div className="modal-action">
+                        <label htmlFor="resale-modal" className="btn rounded-full">X</label>
                     </div>
                 </div>
             </div>

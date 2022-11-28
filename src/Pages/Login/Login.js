@@ -3,19 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../Components/PrimaryBtn/PrimaryBtn';
 import toast from 'react-hot-toast'
-import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { login, googleSignIn } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
-    const [loginEmail, setLoginEmail] = useState('')
-    const [token] = useToken(loginEmail)
-
-    if (token) {
-        navigate(from, { replace: true })
-    }
     const handleLogin = event => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -23,7 +16,7 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                setLoginEmail(email)
+                navigate(from, { replace: true })
                 toast.success('Login successfully')
             })
             .catch(error => {
@@ -59,7 +52,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
