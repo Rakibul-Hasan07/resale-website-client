@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 const CategoryOption = () => {
-    const { data: categoryData = [] } = useQuery({
+    const { data: categoryData = [], isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
             const res = await fetch('https://resale-website-server.vercel.app/category')
@@ -11,6 +11,9 @@ const CategoryOption = () => {
             return data;
         }
     })
+    if (isLoading) {
+        return <button className="btn loading">loading</button>
+    }
     return (
         <div className='flex flex-col items-center'>
             <h3 className='text-center font-bold text-3xl my-4'>Select Your Own Choose</h3>

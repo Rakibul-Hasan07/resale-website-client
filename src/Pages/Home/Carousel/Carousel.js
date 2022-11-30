@@ -3,8 +3,8 @@ import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
 
 const Carousel = () => {
     return (
-        <div className='lg:flex mt-6' >
-            <div className='lg:flex-1 justify-center items-center'>
+        <div className='lg:flex mt-6 justify-center items-center ' >
+            <div className='lg:flex-1 lg:px-10'>
                 <h1 className='font-bold text-4xl text-center'>We Help you to <br /> suggests good products</h1>
                 <p className='font-bold text-xl m-4'>We are provide second hand products service. You visits our website and choose your products.You can buy budge friendly products.</p>
                 <div className='flex gap-8 mt-4'>

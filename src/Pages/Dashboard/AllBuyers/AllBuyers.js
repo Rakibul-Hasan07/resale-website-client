@@ -3,14 +3,15 @@ import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import DeleteModal from '../../../Components/DeleteModal/DeleteModal';
 
-const AllSellers = () => {
-    const [sellerData, setSellerData] = useState(null)
+const AllBuyers = () => {
+    const [buyerData, setBuyerData] = useState(null)
+
     const closeModal = () => {
-        setSellerData(null);
+        setBuyerData(null);
     }
 
     const successModal = id => {
-        fetch(`https://resale-website-server.vercel.app/seller/${id}`, {
+        fetch(`https://resale-website-server.vercel.app/buyer/${id}`, {
             method: 'DELETE',
             authorization: `bearer ${localStorage.getItem('accessToken')}`
         })
@@ -22,15 +23,15 @@ const AllSellers = () => {
                 }
             })
     }
-    const { data: users, refetch } = useQuery({
-        queryKey: ['seller'],
+    const { data: buyers, refetch } = useQuery({
+        queryKey: ['buyer'],
         queryFn: async () => {
-            const res = await fetch('https://resale-website-server.vercel.app/seller')
+            const res = await fetch('https://resale-website-server.vercel.app/buyer')
             const data = await res.json()
             return data;
         }
     })
-    console.log(users);
+    console.log(buyers);
     return (
         <div>
             <div className="overflow-x-auto">
@@ -45,11 +46,11 @@ const AllSellers = () => {
                     </thead>
                     <tbody>
                         {
-                            users?.map((user, idx) => <tr key={idx}>
+                            buyers?.map((buyer, idx) => <tr key={idx}>
                                 <th>{idx + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td><label onClick={() => setSellerData(user)} htmlFor="my-confirmation" className="btn btn-xs btn-error">delete</label></td>
+                                <td>{buyer.name}</td>
+                                <td>{buyer.email}</td>
+                                <td><label onClick={() => setBuyerData(buyer)} htmlFor="my-confirmation" className="btn btn-xs btn-error">delete</label></td>
                             </tr>)
                         }
 
@@ -57,19 +58,18 @@ const AllSellers = () => {
                 </table>
             </div>
             {
-                sellerData && <DeleteModal
+                buyerData && <DeleteModal
                     title={'Are You Sure To Delete'}
                     message={'If you are delete this you cannot recover'}
                     closeModal={closeModal}
                     successModal={successModal}
-                    modalData={sellerData}
+                    modalData={buyerData}
                 >
 
                 </DeleteModal>
             }
         </div>
-
     );
 };
 
-export default AllSellers;
+export default AllBuyers;

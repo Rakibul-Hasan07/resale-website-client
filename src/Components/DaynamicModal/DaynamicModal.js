@@ -21,6 +21,7 @@ const DaynamicModal = ({ modalData, setModalData }) => {
             place: data.place,
             date
         }
+        console.log(bookings);
         fetch('https://resale-website-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
@@ -30,7 +31,7 @@ const DaynamicModal = ({ modalData, setModalData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 if (data.acknowledged) {
                     toast.success('Booked successfully')
                     setModalData(null)
@@ -50,40 +51,40 @@ const DaynamicModal = ({ modalData, setModalData }) => {
                                         <label className="label">
                                             <span className="label-text">Name</span>
                                         </label>
-                                        <input type="text" {...register("name")} name='name' placeholder="name" value={user?.displayName} readOnly className="input input-bordered" />
+                                        <input type="text" {...register("name", { required: true })} name='name' placeholder="name" value={user?.displayName} readOnly className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Email</span>
                                         </label>
-                                        <input type="email" {...register("email")} name='email' placeholder="email" value={user?.email} readOnly className="input input-bordered" />
+                                        <input type="email" {...register("email", { required: true })} name='email' placeholder="email" value={user?.email} readOnly className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Product Name</span>
                                         </label>
-                                        <input type="text" {...register("productName")} name='product' placeholder="product" value={productName} readOnly className="input input-bordered" />
+                                        <input type="text" {...register("productName", { required: true })} name='product' placeholder="product" value={productName} readOnly className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
-                                        <input type="text" {...register("price")} name='price' placeholder="price" value={resale} readOnly className="input input-bordered" />
+                                        <input type="text" {...register("price", { required: true })} name='price' placeholder="price" value={resale} readOnly className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Phone</span>
                                         </label>
-                                        <input type="text" {...register("phone")} name='phone' placeholder="phone" className="input input-bordered" />
+                                        <input type="text" {...register("phone", { required: true })} name='phone' placeholder="phone" className="input input-bordered" />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Meeting Location</span>
                                         </label>
-                                        <input type="text" {...register("place")} name='place' placeholder="place" className="input input-bordered" />
+                                        <input type="text" {...register("place", { required: true })} name='place' placeholder="place" className="input input-bordered" />
                                     </div>
                                     <div className="form-control mt-6 text-center">
-                                        <Link to='/category/my-orders'><PrimaryBtn unique={'w-full'}>Submit</PrimaryBtn></Link>
+                                        <PrimaryBtn unique={'w-full'}>Submit</PrimaryBtn>
                                     </div>
                                 </form>
                             </div>

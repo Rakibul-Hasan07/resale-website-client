@@ -1,11 +1,13 @@
 import CategoryLayout from "../Layout/CategoryLayout";
 import DashboardLayout from "../Layout/DashboardLayout";
-import MyOrders from "../MyOrders/MyOrders";
 import AllProducts from '../Pages/Category/AllProducts/AllProducts'
+import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyProducts from "../Pages/Products/MyProducts/MyProducts";
+import Products from "../Pages/Products/Products/Products";
 import Register from "../Pages/Register/Register";
 import Blogs from "../Pages/Shared/Blogs/Blogs";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
@@ -30,9 +32,7 @@ export const routes = createBrowserRouter([
                     return fetch(`https://resale-website-server.vercel.app/category/products/${params.id}`)
                 }
             },
-            {
-                path: '/category/my-orders', element: <MyOrders></MyOrders>
-            }
+
         ]
     },
     {
@@ -41,8 +41,11 @@ export const routes = createBrowserRouter([
                 path: '/dashboard', element: <Dashboard></Dashboard>
             },
             {
-                path: '/dashboard/users/all-users', element: <AllSellers></AllSellers>
+                path: '/dashboard/users/all-seller', element: <AllSellers></AllSellers>
             },
+            { path: '/dashboard/users/all-buyer', element: <AllBuyers></AllBuyers> },
+            { path: '/dashboard/add-products', element: <Products></Products> },
+            { path: '/dashboard/my-products', element: <MyProducts></MyProducts> }
 
         ]
     }

@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
             setUser(currentUser);
         })
-        return () => unsubscribe;
+        return () => unsubscribe();
     }, [])
     //update user
     const updateUser = (name, url) => {
