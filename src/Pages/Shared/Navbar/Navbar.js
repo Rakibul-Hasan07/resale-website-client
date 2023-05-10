@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
 import resaleLogo from '../../../assets/resale (2).png'
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, theme, setTheme } = useContext(AuthContext)
+    
+    // console.log(isTrue);
 
     const handleLogout = () => {
         logOut()
@@ -14,6 +16,15 @@ const Navbar = () => {
                 console.log(error);
             })
     }
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    }, [theme])
+
     const navMenu = <>
         <li><Link to='/'>Home</Link></li>
         {
@@ -23,10 +34,10 @@ const Navbar = () => {
         <li><Link to='/category'>Category</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/'>About Us</Link></li>
-        <li><Link to='/'>Contact Us</Link></li>
+        <li><Link to='/contactus'>Contact Us</Link></li>
     </>
     return (
-        <div className="navbar">
+        <div className="navbar dark:bg-black">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -50,6 +61,12 @@ const Navbar = () => {
                         <PrimaryBtn unique={"btn-sm"}><Link onClick={handleLogout} to='/login'>LogOut</Link></PrimaryBtn> : <>
                             <PrimaryBtn unique={"btn-sm"}><Link to='/login'>Login</Link></PrimaryBtn>
                         </>
+                }
+            </div>
+            <div>
+
+                {
+                    theme === "light" ? <button onClick={() => setTheme("dark")} > <i className="ri-sun-line text-xl"></i></button> : <button onClick={() => setTheme("light")}> <i className="ri-moon-line text-xl"></i></button>
                 }
             </div>
         </div>

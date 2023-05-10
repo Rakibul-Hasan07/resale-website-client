@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AuthProvider from './AuthProvider/AuthProvider';
 import { Toaster } from 'react-hot-toast';
+import 'remixicon/fonts/remixicon.css'
 
 // Create a client
 const queryClient = new QueryClient()
