@@ -6,7 +6,7 @@ const ProductCard = ({ product, setModalData }) => {
     const { image, location, sellerName, resale, original, useYear, productName } = product;
     return (
         <div>
-            <div className="card bg-blue-500 shadow-xl mb-20">
+            <div className="card bg-gray-100 dark:bg-slate-500 shadow-xl mb-20">
                 <figure><img className='w-[300px] h-[200px] lg:w-[300px] lg:h-[200px] p-3 ' src={image} alt="" /></figure>
                 <div className="card-body flex justify-center items-center">
                     <h2 className="card-title font-bold text-2xl">
@@ -28,7 +28,7 @@ const ProductCard = ({ product, setModalData }) => {
                         <p>Seller: {sellerName}</p>
                     </div>
                     <div onClick={() => setModalData(product)} className="card-actions justify-center">
-                        <label className='btn btn-secondary' htmlFor="resale-modal">Book Now</label>
+                    <PrimaryBtn>Book Now</PrimaryBtn>
                     </div>
                 </div>
             </div>
