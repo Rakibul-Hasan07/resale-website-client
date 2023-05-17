@@ -12,10 +12,10 @@ const CategoryOption = () => {
         }
     })
     if (isLoading) {
-        return <button className="btn loading">loading</button>
+        return <button className="btn loading">loading...</button>
     }
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col bg-slate-100 dark:bg-slate-700 items-center'>
             <h3 className='text-center font-bold text-3xl my-4'>Select Your Own Choose</h3>
             <ul className="menu bg-base-100 dark:bg-slate-500 w-56 rounded-box font-bold text-xl mb-5">
                 {

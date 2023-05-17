@@ -12,7 +12,7 @@ const OfferBanner = () => {
             </div>
             <div className='flex-1'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-                    <div className="card bg-blue-600 shadow-xl">
+                    <div className="card bg-slate-100 dark:bg-slate-700 shadow-xl">
                         <div className="card-body text-center">
                             <h2 className="font-bold text-3xl">HP LAPTOP</h2>
                             <h3 className='font-bold text-3xl'>17+</h3>
@@ -22,7 +22,7 @@ const OfferBanner = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card shadow-xl bg-blue-600 ">
+                    <div className="card shadow-xl bg-slate-100 dark:bg-slate-500 ">
                         <div className="card-body text-center">
                             <h2 className="font-bold text-3xl">DELL LAPTOP</h2>
                             <h3 className='font-bold text-3xl'>14+</h3>

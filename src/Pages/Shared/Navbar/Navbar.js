@@ -6,7 +6,7 @@ import resaleLogo from '../../../assets/resale (2).png'
 
 const Navbar = () => {
     const { user, logOut, theme, setTheme } = useContext(AuthContext)
-    
+
     // console.log(isTrue);
 
     const handleLogout = () => {
@@ -55,6 +55,7 @@ const Navbar = () => {
                     {navMenu}
                 </ul>
             </div>
+
             <div className="navbar-end">
                 {
                     user?.uid ?
@@ -63,10 +64,13 @@ const Navbar = () => {
                         </>
                 }
             </div>
-            <div>
+            <div className='ml-2'>
+                <img className='w-14 h-10 rounded-full' title={user?.displayName} src={user?.photoURL} />
+            </div>
+            <div className='ml-2'>
 
                 {
-                    theme === "light" ? <button onClick={() => setTheme("dark")} > <i className="ri-sun-line text-xl"></i></button> : <button onClick={() => setTheme("light")}> <i className="ri-moon-line text-xl"></i></button>
+                    theme === "light" ? <button onClick={() => setTheme("dark")} > <i className="ri-sun-line text-2xl"></i></button> : <button onClick={() => setTheme("light")}> <i className="ri-moon-line text-2xl"></i></button>
                 }
             </div>
         </div>
