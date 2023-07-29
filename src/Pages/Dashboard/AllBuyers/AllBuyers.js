@@ -11,7 +11,7 @@ const AllBuyers = () => {
     }
 
     const successModal = id => {
-        fetch(`https://resale-website-server.vercel.app/buyer/${id}`, {
+        fetch(`https://resale-website-server.vercel.app/api/v1/buyer/${id}`, {
             method: 'DELETE',
             authorization: `bearer ${localStorage.getItem('accessToken')}`
         })
@@ -26,7 +26,7 @@ const AllBuyers = () => {
     const { data: buyers, refetch } = useQuery({
         queryKey: ['buyer'],
         queryFn: async () => {
-            const res = await fetch('https://resale-website-server.vercel.app/buyer')
+            const res = await fetch('https://resale-website-server.vercel.app/api/v1/buyer')
             const data = await res.json()
             return data;
         }

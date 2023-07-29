@@ -7,9 +7,10 @@ const HpLaptop = () => {
     const category = useLoaderData();
     const productsItems = category.categoryProducts;
     const [modalData, setModalData] = useState(null)
+    console.log(modalData)
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 '>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 '>
                 {
                     productsItems.map((product, idx) => <div key={idx}>
                         <ProductCard

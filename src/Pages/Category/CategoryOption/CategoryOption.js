@@ -6,7 +6,7 @@ const CategoryOption = () => {
     const { data: categoryData = [], isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('https://resale-website-server.vercel.app/category')
+            const res = await fetch('https://resale-website-server.vercel.app/api/v1/category')
             const data = await res.json();
             return data;
         }

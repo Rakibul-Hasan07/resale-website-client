@@ -8,6 +8,7 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 
 const Login = () => {
     const { login, googleSignIn } = useContext(AuthContext)
+    const [loginError, setLoginError] = useState('')
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -28,7 +29,12 @@ const Login = () => {
                 toast.success('Login successfully')
             })
             .catch(error => {
-                console.log(error);
+                if (error) {
+                    setLoginError(error)
+                }
+                else {
+                    setLoginError('')
+                }
             })
     }
     const handleGoogle = () => {
@@ -42,7 +48,7 @@ const Login = () => {
                     url: user?.photoURL,
                     role: 'buyer'
                 }
-                fetch('https://resale-website-server.vercel.app/users', {
+                fetch('https://resale-website-server.vercel.app/api/v1/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -51,6 +57,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
+                        console.log(data)
                         if (data.acknowledged) {
                             toast.success('Login successfully')
                             navigate('/')
@@ -62,13 +69,17 @@ const Login = () => {
             })
     }
     return (
-        <div>
+        <div className='flex justify-center items-center'>
+            <div className='hidden md:block'>
+                <img src='https://i.ibb.co/JcHtxhY/34227831.jpg'></img>
+            </div>
             <div className="hero">
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-2xl font-bold">Login Here!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                        <span className='text-red-500 -mb-8 text-center mt-2'>{loginError.message}</span>
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -81,6 +92,7 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -89,7 +101,7 @@ const Login = () => {
                                         <Link to='/register' className='text-blue-500'> Create Account</Link></p>
                                 </label>
                             </div>
-                            <div className="form-control mt-6 text-center">
+                            <div className="form-control mt-2 text-center">
                                 <PrimaryBtn unique={'w-full'}>Login</PrimaryBtn>
                             </div>
                         </form>
@@ -97,7 +109,7 @@ const Login = () => {
                             <div className="divider">OR</div>
                         </div>
                         <div onClick={handleGoogle} className="form-control text-center my-3 px-8">
-                            <PrimaryBtn unique={'w-full'}><AiFillGoogleCircle className='w-6 h-8'/> Google</PrimaryBtn>
+                            <button className="btn btn-outline btn-success"><AiFillGoogleCircle className='w-6 h-8' /> Google</button>
                         </div>
                     </div>
                 </div>

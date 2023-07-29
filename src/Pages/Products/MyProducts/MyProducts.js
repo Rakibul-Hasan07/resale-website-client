@@ -12,7 +12,7 @@ const MyProducts = () => {
     }
 
     const successModal = id => {
-        fetch(`https://resale-website-server.vercel.app/add-products/${id}`, {
+        fetch(`https://resale-website-server.vercel.app/api/v1/add-products/${id}`, {
             method: 'DELETE',
             authorization: `bearer ${localStorage.getItem('accessToken')}`
         })
@@ -29,7 +29,7 @@ const MyProducts = () => {
     const { data: myProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['add-products', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://resale-website-server.vercel.app/add-products?email=${user?.email}`, {
+            const res = await fetch(`https://resale-website-server.vercel.app/api/v1/add-products?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -52,7 +52,7 @@ const MyProducts = () => {
             description: product.description,
             year: product.year
         }
-        fetch('https://resale-website-server.vercel.app/add-advertise', {
+        fetch('https://resale-website-server.vercel.app/api/v1/add-advertise', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -62,6 +62,7 @@ const MyProducts = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 if (data.acknowledged === false) {
                     toast.error('Already Advertised')
                 }

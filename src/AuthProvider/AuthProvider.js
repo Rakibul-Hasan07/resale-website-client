@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [theme, setTheme] = useState("light")
+    const [product, setProduct] = useState(null)
 
     //create user
     const createUser = (email, password) => {
@@ -55,7 +56,9 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         theme,
-        setTheme
+        setTheme,
+        product,
+        setProduct
     }
     return (
         <div>

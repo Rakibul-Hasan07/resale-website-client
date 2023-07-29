@@ -4,6 +4,7 @@ import Footer from '../Pages/Shared/Footer/Footer';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
+import Loading from '../Components/Loading/Loading';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
@@ -11,14 +12,14 @@ const DashboardLayout = () => {
     const { data: users, isLoading } = useQuery({
         queryKey: ['users', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://resale-website-server.vercel.app/users/${user?.email}`)
+            const res = await fetch(`https://resale-website-server.vercel.app/api/v1/users/${user?.email}`)
             const data = await res.json();
             return data;
         }
     })
     console.log(users);
     if (isLoading) {
-        return <button className="btn loading">loading</button>
+        return <Loading></Loading>
     }
 
     return (

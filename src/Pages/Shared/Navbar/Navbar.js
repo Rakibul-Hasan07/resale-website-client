@@ -31,7 +31,7 @@ const Navbar = () => {
             user?.uid ?
                 <li><Link to='/dashboard'>Dashboard</Link></li> : <></>
         }
-        <li><Link to='/category'>Category</Link></li>
+        <li><Link to='/category'>Categories</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/'>About Us</Link></li>
         <li><Link to='/contactus'>Contact Us</Link></li>
@@ -56,17 +56,20 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="navbar-end">
+            <div className="navbar-end gap-3">
                 {
                     user?.uid ?
                         <PrimaryBtn unique={"btn-sm"}><Link onClick={handleLogout} to='/login'>LogOut</Link></PrimaryBtn> : <>
                             <PrimaryBtn unique={"btn-sm"}><Link to='/login'>Login</Link></PrimaryBtn>
+                            <PrimaryBtn unique={"btn-sm"}><Link to='/register'>Register</Link></PrimaryBtn>
                         </>
                 }
             </div>
-            <div className='ml-2'>
+            { user?.photoURL ?
+                <div className='ml-2'>
                 <img className='w-14 h-10 rounded-full' title={user?.displayName} src={user?.photoURL} />
-            </div>
+            </div> : ''
+            }
             <div className='ml-2'>
 
                 {

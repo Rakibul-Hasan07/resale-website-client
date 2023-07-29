@@ -4,7 +4,7 @@ const useUsers = email => {
     const [isUsers, setIsUsers] = useState('')
     const [usersLoading, setUsersLoading] = useState(true)
     useEffect(() => {
-        fetch(`https://resale-website-server.vercel.app/users/all-user?email=${email}`)
+        fetch(`https://resale-website-server.vercel.app/api/v1/users/all-user?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 setIsUsers(data)

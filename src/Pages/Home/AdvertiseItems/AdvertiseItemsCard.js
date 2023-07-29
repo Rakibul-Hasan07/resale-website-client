@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillStar, AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaLocationArrow } from 'react-icons/fa';
 import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const AdvertiseItemsCard = ({ advertise }) => {
+    const { setProduct } = useContext(AuthContext)
     const { _id, email, phone, productName, price, image, quality, location, year } = advertise;
     const transactionId = Math.ceil(Math.random(16) * 100000000)
     const payData = {
@@ -21,7 +24,7 @@ const AdvertiseItemsCard = ({ advertise }) => {
         phone
     }
     const handlePayment = async () => {
-        await axios.post('http://localhost:5000/api/v1/payment/init', {
+        await axios.post(' https://resale-website-server.vercel.app/api/v1/v1/payment/init', {
             payData
         })
             .then(res => {
@@ -53,9 +56,14 @@ const AdvertiseItemsCard = ({ advertise }) => {
                         <p className='flex items-center'> <AiOutlineShoppingCart></AiOutlineShoppingCart> {year}</p>
                     </span>
                 </div>
-                <span onClick={handlePayment} className='text-center mb-6'>
-                    <PrimaryBtn>Buy Now</PrimaryBtn>
-                </span>
+                <div className='flex justify-between items-center mx-2'>
+                    <span onClick={handlePayment} className='text-center mb-6'>
+                        <PrimaryBtn>Buy Now</PrimaryBtn>
+                    </span>
+                    <span className='text-center mb-6'>
+                        <Link to={`/details/${_id}`}><PrimaryBtn>Details</PrimaryBtn></Link>
+                    </span>
+                </div>
             </div>
         </div>
     );

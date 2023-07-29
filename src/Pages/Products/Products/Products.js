@@ -14,9 +14,9 @@ const Products = () => {
     const { data: categoryName = [] } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('https://resale-website-server.vercel.app/category')
+            const res = await fetch('https://resale-website-server.vercel.app/api/v1/category')
             const data = await res.json();
-            return data;
+            return data;   
         }
     });
 
@@ -42,8 +42,8 @@ const Products = () => {
                     description: data.description,
                     year: data.year
                 }
-                console.log(myProducts);
-                fetch('https://resale-website-server.vercel.app/add-products', {
+                console.log(data.category)
+                fetch('https://resale-website-server.vercel.app/api/v1/add-products', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
@@ -53,28 +53,12 @@ const Products = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        if (data.acknowledged) {
+                        if (data) {
                             toast.success('Add Products Successfully')
                             navigate('/dashboard/my-products')
                         }
                     })
             })
-
-        // fetch('https://resale-website-server.vercel.app/add-products', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         authorization: `bearer ${localStorage.getItem('accessToken')}`
-        //     },
-        //     body: JSON.stringify(myProducts)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.acknowledged) {
-        //             toast.success('Add Products Successfully')
-        //             navigate('/dashboard/my-products')
-        //         }
-        //     })
     }
     return (
         <div>
