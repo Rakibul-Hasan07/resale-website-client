@@ -22,8 +22,8 @@ const AdvertiseItems = () => {
 
     return (
         <div>
-            {advertiseData.length && <h3 className='text-4xl font-bold text-center mt-10'>Advertise Items</h3>}
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10 mb-20'>
+            {advertiseData.length && <h3 className='text-2xl mb:4 md:mb-6 mt-10'>Advertise Items</h3>}
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb:4 md:mb-10'>
                 {
                     advertiseData && advertiseData.map(advertise => <AdvertiseItemsCard key={advertise._id} advertise={advertise}></AdvertiseItemsCard>)
                 }
