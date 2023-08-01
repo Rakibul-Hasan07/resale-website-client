@@ -28,7 +28,7 @@ const ProductCard = ({ product, setModalData }) => {
                         <p>Seller: {sellerName}</p>
                     </div>
                     <div onClick={() => setModalData(product)} className="card-actions justify-center">
-                    <PrimaryBtn>Book Now</PrimaryBtn>
+                    <label htmlFor="my_modal_6" className="btn bg-gradient-to-r from-cyan-500 to-blue-500 border-none">Book Now</label>
                     </div>
                 </div>
             </div>

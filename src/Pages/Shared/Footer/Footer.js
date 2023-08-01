@@ -40,7 +40,7 @@ const Footer = () => {
                 </div>
             </footer>
             <footer className="footer footer-center p-4 text-base-content">
-                <div>
+                <div className=' dark:text-white'>
                     <p>Copyright © 2022 - All right reserved by ResaleXpress</p>
                 </div>
             </footer>

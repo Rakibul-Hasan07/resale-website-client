@@ -5,6 +5,7 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Components/Loading/Loading';
+import { AiOutlineMail } from 'react-icons/ai';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
@@ -29,7 +30,7 @@ const DashboardLayout = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button mt-5 lg:hidden">Open Dashboard</label>
 
                 </div>
                 <div className="drawer-side border bg-gray-100 dark:bg-slate-700">
@@ -37,44 +38,20 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 flex items-center dark:text-white  text-base-content">
                         <div className="mb-10 px-20 py-4">
-                            <div className="">
-                                <img className='w-24 h-24 rounded-full' src={users?.url} />
+                            <div className="avatar">
+                                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src={users?.url} />
+                                </div>
                             </div>
-                            <div className="mt-4">
+                            <div className="mt-4 text-xl font-semibold">
                                 <p>{users?.name}</p>
                             </div>
-                            <div className="mt-4">
+                            <div className="mt-4 flex items-center gap-1 text-center">
+                                <AiOutlineMail></AiOutlineMail>
                                 <p>{users?.email}</p>
                             </div>
                         </div>
-                        <hr/>
-                        {/* {
-                            users.map(user => <div>
-                                {
-                                    user.role === 'admin' ?
-                                        <>
-                                            <li><Link to='/dashboard/users/all-users'>All Sellers</Link></li>
-                                            <li><Link>All Buyers</Link></li>
-                                            <li><Link>Reported Items</Link></li>
-                                        </>
-                                        : null
-                                }
-                                {
-                                    user.role === 'seller' ?
-                                        <>
-                                            <li><Link to='/dashboard/users/all-users'>Add a Products</Link></li>
-                                            <li><Link>My Products</Link></li>
-                                            <li><Link>My Buyers</Link></li>
-                                        </>
-                                        : null
-                                }
-                                {
-                                    user.role === 'buyer' ?
-                                        <li><Link>My Orders</Link></li>
-                                        : null
-                                }
-                            </div>)
-                        } */}
+                        <hr />
                         {
                             users?.role === 'admin' ?
                                 <>
