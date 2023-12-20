@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
@@ -31,7 +31,7 @@ const Navbar = () => {
             user?.uid ?
                 <li><Link to='/dashboard'>Dashboard</Link></li> : <></>
         }
-        <li><Link to='/category'>Categories</Link></li>
+        <li><Link to='/category/products/04'>Categories</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/'>About Us</Link></li>
         <li><Link to='/contactus'>Contact Us</Link></li>
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
             { user?.photoURL ?
                 <div className='ml-2'>
-                <img className='w-14 h-10 rounded-full' title={user?.displayName} src={user?.photoURL} />
+                <img className='w-16 h-8 rounded-full' title={user?.displayName} src={user?.photoURL} alt='name' />
             </div> : ''
             }
             <div className='ml-2'>

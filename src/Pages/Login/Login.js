@@ -24,7 +24,6 @@ const Login = () => {
         const password = event.target.password.value;
         login(email, password)
             .then(result => {
-                const user = result.user;
                 setLoginEmail(email)
                 toast.success('Login successfully')
             })
@@ -71,7 +70,7 @@ const Login = () => {
     return (
         <div className='flex justify-center items-center'>
             <div className='hidden md:block'>
-                <img src='https://i.ibb.co/JcHtxhY/34227831.jpg'></img>
+                <img src='https://i.ibb.co/JcHtxhY/34227831.jpg' alt=''></img>
             </div>
             <div className="hero">
                 <div className="hero-content flex-col">
@@ -94,7 +93,7 @@ const Login = () => {
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="/forgot" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                                 <label className="label">
                                     <p>Are you new here?

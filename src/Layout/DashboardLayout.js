@@ -9,7 +9,6 @@ import { AiOutlineMail } from 'react-icons/ai';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
-    // const [isUsers] = useUsers(user?.email);
     const { data: users, isLoading } = useQuery({
         queryKey: ['users', user?.email],
         queryFn: async () => {
@@ -40,7 +39,7 @@ const DashboardLayout = () => {
                         <div className="mb-10 px-20 py-4">
                             <div className="avatar">
                                 <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={users?.url} />
+                                    <img src={users?.url} alt='user' />
                                 </div>
                             </div>
                             <div className="mt-4 text-xl font-semibold">

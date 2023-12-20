@@ -8,6 +8,8 @@ import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home/Home";
 import ProductDetails from "../Pages/Home/ProductDetails/ProductDetails";
 import Login from "../Pages/Login/Login";
+import Cancel from "../Pages/Payment/Cancel/Cancel";
+import Sucess from "../Pages/Payment/Success/Sucess";
 import MyProducts from "../Pages/Products/MyProducts/MyProducts";
 import Products from "../Pages/Products/Products/Products";
 import Register from "../Pages/Register/Register";
@@ -26,6 +28,8 @@ export const routes = createBrowserRouter([
             { path: '/register', element: <Register></Register> },
             { path: '/blogs', element: <Blogs></Blogs> },
             { path: '/contactus', element: <ContactUs></ContactUs> },
+            { path: '/success', element: <Sucess /> },
+            { path: '/cancel', element: <Cancel /> },
             {
                 path: '/details/:id', element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>,
                 loader: ({ params }) => {

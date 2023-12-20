@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "resalexpress-6bab1"
-  }
+    "default": "resale-express",
+    "firebase use staging": "resale-express",
+    "resale-express1": "resale-express"
+  },
+  "targets": {},
+  "etags": {}
 }

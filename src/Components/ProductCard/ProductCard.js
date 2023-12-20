@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MapPinIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
-import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 
 const ProductCard = ({ product, setModalData }) => {
     const { image, location, sellerName, resale, original, useYear, productName } = product;

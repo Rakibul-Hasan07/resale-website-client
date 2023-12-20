@@ -5,7 +5,7 @@ import { AiFillStar } from 'react-icons/ai';
 
 const ProductDetails = () => {
     const myData = useLoaderData();
-    const { _id, email, phone, productName, price, image, quality, location, year, description } = myData;
+    const {  email, phone, productName, price, image, quality, location, year, description } = myData;
     console.log(myData)
     const [count, setCount] = useState(1);
     const handleIncrement = () => {

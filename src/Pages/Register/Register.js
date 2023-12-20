@@ -25,11 +25,11 @@ const Register = () => {
         const image = event.target.image.files[0];
         const formData = new FormData();
         formData.append('image', image);
+        console.log(formData)
 
         //create user
         createUser(email, password)
             .then(result => {
-                const user = result.user;
                 //image hoisting
                 fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`, {
                     method: 'POST',
@@ -86,7 +86,7 @@ const Register = () => {
             </div>
             <div className='flex justify-center items-center'>
                 <div className='md:w-full hidden md:block'>
-                    <img className='md:w-full' src='https://i.ibb.co/k5BpGmV/26564469.jpg'></img>
+                    <img className='md:w-full' src='https://i.ibb.co/k5BpGmV/26564469.jpg' alt=''></img>
                 </div>
                 <div className="hero">
 
@@ -120,7 +120,7 @@ const Register = () => {
                                     </label>
                                     <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                     <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                        <a href="/forgot" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
                                     <label className="label">
                                         <p>You have an account?

@@ -5,7 +5,9 @@ import ProductCard from '../../../Components/ProductCard/ProductCard';
 
 const HpLaptop = () => {
     const category = useLoaderData();
+    console.log(category)
     const productsItems = category.categoryProducts;
+    console.log(productsItems)
     const [modalData, setModalData] = useState(null)
     console.log(modalData)
     return (

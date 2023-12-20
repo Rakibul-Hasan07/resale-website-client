@@ -1,17 +1,8 @@
 import React from 'react';
-import PrimaryBtn from '../../../Components/PrimaryBtn/PrimaryBtn';
 
 const Carousel = () => {
     return (
         <div className='lg:flex mt-6 justify-center items-center ' >
-            {/* <div className='lg:flex-1 lg:px-10'>
-                <h1 className='font-bold text-4xl text-center'>We Help you to <br /> suggests good products</h1>
-                <p className='font-bold text-xl m-4'>We are provide second hand products service. You visits our website and choose your products.You can buy budge friendly products.</p>
-                <div className='flex gap-8 mt-4'>
-                    <PrimaryBtn>Contact Us</PrimaryBtn>
-                    <PrimaryBtn>See Products</PrimaryBtn>
-                </div>
-            </div> */}
             <div className="carousel w-full lg:flex-1">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://i.ibb.co/WDs0YmB/hero-endframe-bsza6x4fldiq-large.jpg" className="w-full h-[450px]" alt='' />

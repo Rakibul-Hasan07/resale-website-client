@@ -20,7 +20,7 @@ const DaynamicModal = ({ modalData, setModalData }) => {
             place: data.place,
             date
         }
-        fetch('https://resale-website-server-rakibul-hasan07.vercel.app/api/v1/bookings', {
+        fetch('https://resale-website-server.vercel.app/api/v1/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

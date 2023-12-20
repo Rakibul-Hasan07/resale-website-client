@@ -7,8 +7,9 @@ const RecentProduct = () => {
     const { isLoading, error, data: products } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch('https://resale-website-server-rakibul-hasan07.vercel.app/api/v1/recent-product')
+            const res = await fetch('https://resale-website-server.vercel.app/api/v1/recent-product')
             const data = await res.json()
+            console.log(data)
             return data;
         }
     })

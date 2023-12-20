@@ -11,6 +11,7 @@ const AdvertiseItems = () => {
         fetch('https://resale-website-server.vercel.app/api/v1/get-advertise')
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setAdvertiseData(data)
                 setLoading(false)
             })

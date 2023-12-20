@@ -1,5 +1,4 @@
 import React from 'react';
-import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import { AiFillStar } from 'react-icons/ai';
 
 const RecentProductCart = ({ product }) => {
