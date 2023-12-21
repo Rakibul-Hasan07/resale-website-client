@@ -27,18 +27,12 @@ const AdvertiseItemsCard = ({ advertise }) => {
     }
     const handlePayment = async () => {
         console.log(payData)
-        await axios.post('http://localhost:5000/api/v1/payment/init', {
+        await axios.post('https://resale-website-server.vercel.app/api/v1/payment/init', {
             payData
         })
             .then(res => {
                 console.log(res)
                 window.location.replace(res.data)
-                if (get) {
-                    navigate('/success')
-                }
-                else {
-                    navigate('cancel')
-                }
             })
 
             .catch(err => console.log(err))

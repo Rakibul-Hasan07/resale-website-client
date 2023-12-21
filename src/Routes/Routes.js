@@ -5,6 +5,7 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../Pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import Home from "../Pages/Home/Home/Home";
 import ProductDetails from "../Pages/Home/ProductDetails/ProductDetails";
 import Login from "../Pages/Login/Login";
@@ -28,7 +29,8 @@ export const routes = createBrowserRouter([
             { path: '/register', element: <Register></Register> },
             { path: '/blogs', element: <Blogs></Blogs> },
             { path: '/contactus', element: <ContactUs></ContactUs> },
-            { path: '/success', element: <Sucess /> },
+            { path: '/payment/success', element: <Sucess /> },
+            { path: '/payment/fail', element: <Cancel/> },
             { path: '/cancel', element: <Cancel /> },
             {
                 path: '/details/:id', element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>,
@@ -58,7 +60,8 @@ export const routes = createBrowserRouter([
             },
             { path: '/dashboard/users/all-buyer', element: <AllBuyers></AllBuyers> },
             { path: '/dashboard/add-products', element: <Products></Products> },
-            { path: '/dashboard/my-products', element: <MyProducts></MyProducts> }
+            { path: '/dashboard/my-products', element: <MyProducts></MyProducts> },
+            { path: '/dashboard/my-orders', element: <MyOrders/> },
 
         ]
     }

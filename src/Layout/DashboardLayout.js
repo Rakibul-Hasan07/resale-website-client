@@ -17,7 +17,7 @@ const DashboardLayout = () => {
             return data;
         }
     })
-    console.log(users);
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -36,7 +36,7 @@ const DashboardLayout = () => {
 
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 flex items-center dark:text-white  text-base-content">
-                        <div className="mb-10 px-20 py-4">
+                        <div className="mb-10 py-4">
                             <div className="avatar">
                                 <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                     <img src={users?.url} alt='user' />
@@ -71,7 +71,7 @@ const DashboardLayout = () => {
                         }
                         {
                             users?.role === 'buyer' ?
-                                <li className='bg-gray-300 dark:bg-slate-400 m-1 w-36'><Link>My Orders</Link></li>
+                                <li className='bg-gray-300 dark:bg-slate-400 rounded-md'><Link to='/dashboard/my-orders'>My Orders</Link></li>
                                 : null
                         }
 
